@@ -82,6 +82,7 @@ const logInWrap = (theme: Theme) => css`
     height: 35rem;
     border-radius: 1rem;
 
+    opacity: 0.8;
     background-color: ${theme.color.skyblue};
     font-weight: ${theme.fontWeight.normal};
     text-align: center;
