@@ -1,18 +1,16 @@
 import Lottie, { Options } from "react-lottie";
 
 interface ILottieWrapper {
-  lottieData: object;
+    lottieData: object;
 }
 
 function LottieWrapper({ lottieData }: ILottieWrapper) {
-  const lottieOptions: Options = {
-    animationData: lottieData,
-    loop: true,
-    autoplay: true,
-  };
+    const lottieOptions: Options = {
+        animationData: lottieData,
+        loop: true,
+        autoplay: true,
+    };
 
-  return (
-      <Lottie options={lottieOptions} isClickToPauseDisabled />
-  );
+    return <Lottie options={lottieOptions} isClickToPauseDisabled />;
 }
 export default LottieWrapper;
