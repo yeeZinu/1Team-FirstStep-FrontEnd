@@ -1,7 +1,7 @@
 import { useRecoilState } from "recoil";
 import { useEffect, useState } from "react";
 import { postState } from "store/postState";
-import { instance } from "libs/api/api";
+import axios from "axios";
 
 function useGetPost() {
   const [posts, setPosts] = useRecoilState(postState);
@@ -9,7 +9,9 @@ function useGetPost() {
 
   async function getPost() {
     setIsLoading(true);
-    const response = await instance.get<{}, IGetPost>("/api/categories");
+    const response = await axios.get<{}, IGetPost>(
+      "http://3.36.64.80:80/api/categories"
+    );
     // setPosts(response.);
     setIsLoading(false);
   }

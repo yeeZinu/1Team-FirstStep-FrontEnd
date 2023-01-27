@@ -1,22 +1,21 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
-import { instance } from "libs/api/api";
 
 interface useGetPostByIdProps {
   id: string | string[] | undefined;
 }
 
 function useGetPostById({ id }: useGetPostByIdProps) {
-  const [post, setPost] =
-    useState<IGetPost | null>(null);
+  const [post, setPost] = useState<IGetPost | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function getPostById(id: string) {
       setIsLoading(true);
-      const response = await instance.get<{}, IGetPost>(
-        `/api/categories/${id}`
+      const response = await axios.get<{}, IGetPost>(
+        `http://3.36.64.80:80/api/categories/${id}`
       );
-    //   setPost(response.);
+      //   setPost(response.);
       setIsLoading(false);
     }
 
