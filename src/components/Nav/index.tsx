@@ -14,7 +14,7 @@ function Nav() {
         <NavLink path="/" category="궁금해요" />
       </div>
       <div css={buttonWrapper}>
-        <Link href="/">
+        <Link href="/Register/logIn">
           <button css={button}>로그인</button>
         </Link>
       </div>
