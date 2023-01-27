@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { ChangeEvent, FormEvent, useState } from "react";
 import theme from "styles/Theme/theme";
+import LottieWrapper from "components/Common/LottieWrapper";
+import resisterBubble from "assets/lottieJSON/ResisterBubble.json";
 
 const SignUp = () => {
     const router = useRouter();
@@ -25,13 +27,16 @@ const SignUp = () => {
         setNickName(e.target.value);
     };
 
-    // api 받아서 값넘겨주기 
+    // api 받아서 값넘겨주기
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
     };
 
     return (
         <div css={allWrap}>
+            <div css={lottieBubble}>
+                <LottieWrapper lottieData={resisterBubble}></LottieWrapper>
+            </div>
             <div css={signUpWrap}>
                 <h1>회원가입</h1>
                 <form onSubmit={onSubmit} css={formList}>
@@ -89,8 +94,9 @@ const signUpWrap = (theme: Theme) => css`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     gap: 3rem;
+
+    z-index: 2;
 
     width: 25rem;
     height: 35rem;
@@ -147,4 +153,12 @@ const submitBtn = (theme: Theme) => css`
             cursor: pointer;
         }
     }
+`;
+
+const lottieBubble = (theme: Theme) => css`
+    width: 100vw;
+    height: 100vh;
+
+    position: absolute;
+    z-index: 1;
 `;

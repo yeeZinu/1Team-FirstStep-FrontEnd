@@ -3,6 +3,8 @@ import { css, Theme } from "@emotion/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ChangeEvent, FormEvent, useState } from "react";
+import LottieWrapper from "components/Common/LottieWrapper";
+import loginBubble from "assets/lottieJSON/LogInBubble.json";
 
 const LogIn = () => {
     const router = useRouter();
@@ -12,7 +14,7 @@ const LogIn = () => {
     const onChangeUserId = (e: ChangeEvent<HTMLInputElement>) => {
         setUserId(e.target.value);
     };
-    
+
     const onChangeUserPw = (e: ChangeEvent<HTMLInputElement>) => {
         setUserPw(e.target.value);
     };
@@ -24,6 +26,9 @@ const LogIn = () => {
 
     return (
         <div css={allWrap}>
+            <div css={lottieBubble}>
+                <LottieWrapper lottieData={loginBubble}></LottieWrapper>
+            </div>
             <div css={logInWrap}>
                 <h1>로그인</h1>
                 <form onSubmit={onSubmit} css={formList}>
@@ -69,8 +74,9 @@ const logInWrap = (theme: Theme) => css`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     gap: 3rem;
+
+    z-index: 2;
 
     width: 25rem;
     height: 35rem;
@@ -127,4 +133,12 @@ const submitBtn = (theme: Theme) => css`
             cursor: pointer;
         }
     }
+`;
+
+const lottieBubble = (theme: Theme) => css`
+    width: 100vw;
+    height: 100vh;
+
+    position: absolute;
+    z-index: 1;
 `;
