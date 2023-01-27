@@ -53,6 +53,7 @@ export default Post;
 const wrapper = css`
   width: 100%;
   height: 100vh;
+  margin: 2.5rem 0;
 `;
 
 const categoryWrapper = css`
