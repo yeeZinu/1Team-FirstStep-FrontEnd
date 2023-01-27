@@ -6,6 +6,7 @@ import typerCat from "assets/lottieJSON/typerCat.json";
 import { useRouter } from "next/router";
 import { ChangeEvent, MouseEvent, FormEvent, useState } from "react";
 import Link from "next/link";
+import axios from "axios";
 
 const NewPost = () => {
     const router = useRouter();
@@ -38,12 +39,49 @@ const NewPost = () => {
         setContents(e.target.value);
     };
 
-        // api 받아서 값넘겨주기
-        const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-    
-            
-        };
+    const errorAlert = () => {
+        if (title.length == 0) {
+            return alert("제목을 입력해 주세요");
+        }
+        if (category.length == 0) {
+            return alert("태그를 입력해 주세요");
+        }
+        if (contents.length == 0) {
+            return alert("내용을 입력해 주세요");
+        }
+    };
+
+    // api 받아서 값넘겨주기
+    const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const TOKEN = localStorage.getItem("accessToken");
+
+        axios
+            .post(
+                "http://3.36.64.80:80/categories",
+                {
+                    title: title,
+                    content: contents,
+                    author: category,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${TOKEN}`,
+                        "Content-Type": `application/json`,
+                    },
+                }
+            )
+            .then((res) => {
+                console.log(res.data);
+
+                router.push("/Post");
+            })
+            .catch((err) => {
+                console.log(err);
+                errorAlert();
+            });
+    };
 
     return (
         <>
