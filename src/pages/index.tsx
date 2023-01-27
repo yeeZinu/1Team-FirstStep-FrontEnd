@@ -65,8 +65,11 @@ function Home() {
           <div css={contentWrapper}>
             <p css={title}>스스로 주도적이어야 합니다.</p>
             <div css={summaryWrapper}>
-              <OneLineContent highlight="“남들은 이랬다는데, 나도 그래야 되는 거겠지?”, “남처럼 못되면 어떡하지?”" />
-              <OneLineContent summary="“첫걸음”에서 가장 먼저 알아야 하는 내용입니다. 우리의 삶은 스스로 만들어냅니다. 인생 선배의 경험은 참고할 뿐 언제나 자신이 스스로 생각하고, 질문하고, 움직입니다." />
+              <OneLineContent highlight="“남들은 이랬다는데, 나도 그래야 되는 거겠지?”" />
+              <OneLineContent highlight=" “남처럼 못되면 어떡하지?”" />
+              <OneLineContent summary="“첫걸음”에서 가장 먼저 알아야 하는 내용입니다." />
+              <OneLineContent summary="우리의 삶은 스스로 만들어냅니다." />
+              <OneLineContent summary="인생 선배의 경험은 참고할 뿐 언제나 자신이 스스로 생각하고, 질문하고, 움직입니다." />
             </div>
           </div>
           <div css={lottieWrapper}>
@@ -94,8 +97,9 @@ function Home() {
           <div css={contentWrapper}>
             <p css={title}>누구나 경험을 공유하고 받을 수 있습니다.</p>
             <div css={summaryWrapper}>
-              <OneLineContent highlight="“첫걸음”은 나이가 한정된 서비스가 아닙니다. 이 공존하는 서비스를 만들겠습니다." />
+              <OneLineContent highlight="“첫걸음”은 나이가 한정된 서비스가 아닙니다." />
               <OneLineContent summary="20살 이상이라면 누구나 공유가 가능하며 공유 받을 수도 있습니다." />
+              <OneLineContent summary="자유롭고 존중받으며 심리적으로 편안한 서비스가 되도록 노력하고 있습니다." />
               <OneLineContent summary="다양한 경험이 공존하는 서비스를 만들겠습니다." />
             </div>
           </div>
@@ -148,7 +152,7 @@ const cardWrapper = css`
   flex-direction: row;
   overflow: hidden;
   width: 68rem;
-  height: 28.5rem;
+  height: 29rem;
   margin: 4.5rem auto 0;
   border-radius: 15px;
   box-shadow: 2px 5px 40px 0 rgb(0 0 0 / 7%);

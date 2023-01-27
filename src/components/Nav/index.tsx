@@ -11,7 +11,7 @@ function Nav() {
       </Link>
       <div>
         <NavLink path="/Post" category="게시글" />
-        <NavLink path="/" category="궁금해요" />
+        <NavLink path="/FAQ" category="FAQ" />
       </div>
       <div css={buttonWrapper}>
         <Link href="/Register/logIn">
