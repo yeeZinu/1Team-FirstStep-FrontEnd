@@ -39,56 +39,77 @@ const NewPost = () => {
     };
 
     return (
-        <div css={main}>
-            <div css={posth1}>
-                <p>새 글 작성</p>
-                <p></p>
-            </div>
-            <div css={post}>
-                <form css={postList}>
-                    <input
-                        css={postTitle}
-                        type="text"
-                        placeholder="제목"
-                        onChange={onChangeTitle}
-                        value={title}
-                    />
-                    <div css={chips}>
-                        {categoryarray.map((ctgr, index) => {
-                            return (
-                                <input
-                                    key={index}
-                                    css={chip}
-                                    type="text"
-                                    onClick={onClickTypeData}
-                                    defaultValue={ctgr}
-                                />
-                            );
-                        })}
-                    </div>
-                    <textarea
-                        css={postContents}
-                        placeholder="내용"
-                        onChange={onChangeContents}
-                        value={contents}
-                    />
+        <>
+            <nav css={navWrapper}>
+                <Link href="/">
+                    <h1 css={logo}>첫걸음</h1>
+                </Link>
+            </nav>
+            <div css={main}>
+                <div css={posth1}>
+                    <p>새 글 작성</p>
+                    <p></p>
+                </div>
+                <div css={post}>
+                    <form css={postList}>
+                        <input
+                            css={postTitle}
+                            type="text"
+                            placeholder="제목"
+                            onChange={onChangeTitle}
+                            value={title}
+                        />
+                        <div css={chips}>
+                            {categoryarray.map((ctgr, index) => {
+                                return (
+                                    <input
+                                        key={index}
+                                        css={chip}
+                                        type="text"
+                                        onClick={onClickTypeData}
+                                        defaultValue={ctgr}
+                                    />
+                                );
+                            })}
+                        </div>
+                        <textarea
+                            css={postContents}
+                            placeholder="내용"
+                            onChange={onChangeContents}
+                            value={contents}
+                        />
 
-                    <div css={submitBtn}>
-                        <Link href="./">
-                            <button>뒤로가기</button>
-                        </Link>
-                        <button type="submit">작성</button>
+                        <div css={submitBtn}>
+                            <Link href="./">
+                                <button>뒤로가기</button>
+                            </Link>
+                            <button type="submit">작성</button>
+                        </div>
+                    </form>
+                    <div css={lottieCat}>
+                        <LottieWrapper lottieData={typerCat}></LottieWrapper>
                     </div>
-                </form>
-                <div css={lottieCat}>
-                    <LottieWrapper lottieData={typerCat}></LottieWrapper>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
 export default NewPost;
+
+const navWrapper = css`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    padding: 3.5rem 4.7rem;
+`;
+
+const logo = css`
+    font-size: 1.8rem;
+    margin-right: 3rem;
+`;
 
 const main = (theme: Theme) => css`
     display: flex;
@@ -202,6 +223,8 @@ const submitBtn = (theme: Theme) => css`
     justify-content: center;
     align-items: center;
     gap: 4.5rem;
+
+    text-align: center;
 
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
