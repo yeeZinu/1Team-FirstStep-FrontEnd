@@ -4,7 +4,7 @@ import theme from "styles/Theme/theme";
 import LottieWrapper from "components/Common/LottieWrapper";
 import typerCat from "assets/lottieJSON/typerCat.json";
 import { useRouter } from "next/router";
-import { ChangeEvent, MouseEvent, useState } from "react";
+import { ChangeEvent, MouseEvent, FormEvent, useState } from "react";
 import Link from "next/link";
 
 const NewPost = () => {
@@ -38,6 +38,13 @@ const NewPost = () => {
         setContents(e.target.value);
     };
 
+        // api 받아서 값넘겨주기
+        const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+    
+            
+        };
+
     return (
         <>
             <nav css={navWrapper}>
@@ -51,7 +58,7 @@ const NewPost = () => {
                     <p></p>
                 </div>
                 <div css={post}>
-                    <form css={postList}>
+                    <form onSubmit={onSubmit} css={postList}>
                         <input
                             css={postTitle}
                             type="text"
